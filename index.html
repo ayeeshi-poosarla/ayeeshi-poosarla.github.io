@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayeeshi Kataria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F5F0E8;
+      --warm-white: #FDFAF4;
+      --ink: #1A1612;
+      --muted: #6B6159;
+      --accent: #C4623A;
+      --accent-light: #E8C4AD;
+      --sage: #7A8C6E;
+      --sage-light: #C8D5BF;
+      --border: #D9D0C0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--warm-white);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.4rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(253, 250, 244, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      padding: 8rem 4rem 6rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3.2rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    .hero-desc {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid;
+      transition: all 0.2s;
+      cursor: pointer;
+      background: none;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--warm-white);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .hero-right {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-right-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem;
+    }
+
+    /* decorative circle */
+    .deco-circle {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-light), var(--sage-light));
+      margin: 0 auto 2.5rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 5rem;
+    }
+
+    .deco-circle::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1.5px dashed var(--accent-light);
+      animation: spin 30s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .deco-tags {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+      color: var(--muted);
+    }
+
+    /* hero background blob */
+    .hero-blob {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,98,58,0.08) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section {
+      padding: 7rem 5rem;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about-left {}
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-right {
+      padding-top: 1rem;
+    }
+
+    .facts-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .facts-list li {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .fact-key {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 0.1rem;
+    }
+
+    .fact-val {
+      color: var(--muted);
+    }
+
+    /* ─── RESEARCH ─── */
+    #research {
+      background: var(--warm-white);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border: 1px solid var(--border);
+    }
+
+    .research-card {
+      padding: 3rem;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      position: relative;
+      transition: background 0.25s;
+      overflow: hidden;
+    }
+
+    .research-card:hover {
+      background: var(--cream);
+    }
+
+    .research-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.35s ease;
+    }
+
+    .research-card:hover::after {
+      width: 100%;
+    }
+
+    .rc-number {
+      font-family: 'Fraunces', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .rc-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.35;
+      margin-bottom: 0.8rem;
+      color: var(--ink);
+    }
+
+    .rc-lab {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .rc-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .rc-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .rc-tag {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.65rem;
+      border: 1px solid var(--sage-light);
+      color: var(--sage);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #projects .section-label {
+      color: var(--accent-light);
+    }
+
+    #projects .section-label::before {
+      background: var(--accent-light);
+    }
+
+    #projects .section-title {
+      color: var(--warm-white);
+    }
+
+    #projects .section-title em {
+      color: var(--accent-light);
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: 2rem;
+      padding: 2.2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      align-items: start;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+
+    .project-item:hover .pi-title {
+      color: var(--accent-light);
+    }
+
+    .pi-num {
+      font-family: 'Fraunces', serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: rgba(245,240,232,0.3);
+      padding-top: 0.25rem;
+    }
+
+    .pi-body {}
+
+    .pi-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .pi-desc {
+      font-size: 0.88rem;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.65;
+    }
+
+    .pi-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+      padding-top: 0.3rem;
+    }
+
+    .pi-year {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: rgba(245,240,232,0.35);
+    }
+
+    .pi-arrow {
+      font-size: 1.1rem;
+      color: rgba(245,240,232,0.2);
+      transition: all 0.2s;
+    }
+
+    .project-item:hover .pi-arrow {
+      color: var(--accent-light);
+      transform: translate(3px, -3px);
+    }
+
+    /* ─── EXPERIENCE ─── */
+    #experience {
+      background: var(--cream);
+    }
+
+    .exp-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .exp-item {
+      position: relative;
+      padding: 0 0 3.5rem 2.5rem;
+    }
+
+    .exp-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .exp-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-role {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-org {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 580px;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--warm-white);
+      text-align: center;
+      padding: 8rem 5rem;
+    }
+
+    #contact .section-label {
+      justify-content: center;
+    }
+
+    #contact .section-label::before {
+      display: none;
+    }
+
+    .contact-big {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-big em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .contact-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 2rem 5rem;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-name {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { gap: 1.2rem; }
+
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 7rem 2rem 4rem; }
+
+      section { padding: 5rem 2rem; }
+
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .research-grid { grid-template-columns: 1fr; }
+
+      .project-item { grid-template-columns: 40px 1fr; }
+      .pi-meta { display: none; }
+
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-name">Ayeeshi Kataria</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <span class="hero-tag fade-up">Stanford University · Biomedical Data Science</span>
+      <h1 class="hero-name fade-up delay-1">
+        Ayeeshi<br><em>Kataria</em>
+      </h1>
+      <p class="hero-subtitle fade-up delay-2">
+        Building AI that actually works in the clinic.
+      </p>
+      <p class="hero-desc fade-up delay-3">
+        I'm a Master's student in Biomedical Data Science at Stanford, advised by Prof. Jason Fries. 
+        I work at the intersection of <strong>clinical NLP</strong>, <strong>retrieval-augmented reasoning</strong>, 
+        and <strong>fairness in medical AI</strong> — curious about how we make models that earn clinical trust.
+      </p>
+      <div class="hero-links fade-up delay-4">
+        <a href="#research" class="btn btn-primary">My Research</a>
+        <a href="mailto:ayeeshi@stanford.edu" class="btn btn-outline">Get in Touch</a>
+        <a href="#" class="btn btn-outline">CV ↗</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-blob"></div>
+      <div class="hero-right-inner">
+        <div class="deco-circle">🧬</div>
+        <div class="deco-tags">
+          <span class="tag">Clinical AI</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Biomedical NLP</span>
+          <span class="tag">Fairness & Equity</span>
+          <span class="tag">Medical Imaging</span>
+          <span class="tag">EHR Data</span>
+          <span class="tag">Warren Alpert Scholar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-left">
+      <div class="section-label fade-up">About Me</div>
+      <h2 class="section-title fade-up">A little bit<br><em>about me</em></h2>
+      <p class="about-text fade-up">
+        I grew up fascinated by two things: how the body works and how computers think. 
+        That curiosity led me to <strong>Johns Hopkins</strong>, where I completed dual degrees in 
+        Computer Science and Biomedical Engineering. Now at Stanford, I'm putting those 
+        threads together in the context of healthcare AI.
+      </p>
+      <p class="about-text fade-up">
+        My work lives in the messy, exciting space where <strong>machine learning meets clinical practice</strong>. 
+        I care deeply about building models that are not just accurate but equitable — systems that 
+        work just as well for every patient, regardless of who they are.
+      </p>
+      <p class="about-text fade-up">
+        Outside of research, I find myself thinking a lot about the epistemics of medicine, 
+        reading history of science, and making very strong opinions about coffee.
+      </p>
+    </div>
+    <div class="about-right fade-up">
+      <ul class="facts-list">
+        <li>
+          <span class="fact-key">Currently</span>
+          <span class="fact-val">M.S. Biomedical Data Science, Stanford University</span>
+        </li>
+        <li>
+          <span class="fact-key">Lab</span>
+          <span class="fact-val">Fries Lab — Prof. Jason Fries</span>
+        </li>
+        <li>
+          <span class="fact-key">Fellowship</span>
+          <span class="fact-val">Warren Alpert Foundation Scholar</span>
+        </li>
+        <li>
+          <span class="fact-key">B.S./B.E.</span>
+          <span class="fact-val">CS + Biomedical Engineering, Johns Hopkins University</span>
+        </li>
+        <li>
+          <span class="fact-key">Interests</span>
+          <span class="fact-val">Clinical NLP · Medical Imaging · Algorithmic Fairness</span>
+        </li>
+        <li>
+          <span class="fact-key">Location</span>
+          <span class="fact-val">Stanford, CA</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="section-label fade-up">Research</div>
+    <h2 class="section-title fade-up">What I'm <em>working on</em></h2>
+    <div class="research-grid">
+      <div class="research-card fade-up">
+        <div class="rc-number">01</div>
+        <div class="rc-lab">Fries Lab · Clinical NLP</div>
+        <h3 class="rc-title">Retrieval-Augmented Clinical Reasoning for Prognosis Modeling</h3>
+        <p class="rc-desc">
+          Investigating whether querying over a patient population helps LLMs reason more effectively 
+          about individual patient EHR timelines. Using BM25 retrieval over EHRSHOT benchmarks to 
+          surface clinically relevant population context at inference time — without any fine-tuning.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">RAG</span>
+          <span class="rc-tag">Clinical LLMs</span>
+          <span class="rc-tag">EHR</span>
+          <span class="rc-tag">FEMR</span>
+          <span class="rc-tag">BM25</span>
+        </div>
+      </div>
+      <div class="research-card fade-up delay-1">
+        <div class="rc-number">02</div>
+        <div class="rc-lab">Fries Lab · Survival Analysis</div>
+        <h3 class="rc-title">Genomic Aberrations & Treatment History in Patient Survival</h3>
+        <p class="rc-desc">
+          Examining how genomic aberrations and longitudinal treatment histories interact to influence 
+          patient survival outcomes. Combining structured EHR data with genomic features to build 
+          richer, more personalized prognostic models.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Survival Analysis</span>
+          <span class="rc-tag">Genomics</span>
+          <span class="rc-tag">EHR</span>
+          <span class="rc-tag">Prognosis</span>
+        </div>
+      </div>
+      <div class="research-card fade-up delay-2">
+        <div class="rc-number">03</div>
+        <div class="rc-lab">CV Course Project</div>
+        <h3 class="rc-title">Fairness in Dermatology AI: Skin Tone Disparities in Foundation Models</h3>
+        <p class="rc-desc">
+          Evaluating inference-time preprocessing interventions — lesion segmentation and grayscaling — 
+          on frozen foundation models (DermLIP, OpenCLIP) to address skin-tone-based performance disparities 
+          in kNN retrieval classification across Fitzpatrick Skin Type groups using the DDI dataset.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Algorithmic Fairness</span>
+          <span class="rc-tag">Medical Imaging</span>
+          <span class="rc-tag">Foundation Models</span>
+          <span class="rc-tag">Dermatology</span>
+          <span class="rc-tag">DDI Dataset</span>
+        </div>
+      </div>
+      <div class="research-card fade-up delay-3">
+        <div class="rc-number">04</div>
+        <div class="rc-lab">Earlier Work · Medical Imaging</div>
+        <h3 class="rc-title">CT Scan Lung Segmentation</h3>
+        <p class="rc-desc">
+          Medical imaging pipeline for automated lung segmentation from CT scans using pydicom and 
+          skimage. Early exposure to the full cycle of clinical image processing — from DICOM handling 
+          to morphological operations to anatomical boundary detection.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">CT Scans</span>
+          <span class="rc-tag">Segmentation</span>
+          <span class="rc-tag">pydicom</span>
+          <span class="rc-tag">skimage</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label fade-up">Projects</div>
+    <h2 class="section-title fade-up">Things I've <em>built</em></h2>
+    <div class="projects-list">
+      <a href="#" class="project-item fade-up">
+        <span class="pi-num">01</span>
+        <div class="pi-body">
+          <div class="pi-title">LRRL Pipeline — EHR Programmatic Summaries</div>
+          <div class="pi-desc">Running the LRRL pipeline on EHRSHOT benchmarks on GCP (A100 GPU). Generating structured patient summaries from FEMR binary extracts for downstream LLM reasoning tasks.</div>
+        </div>
+        <div class="pi-meta">
+          <span class="pi-year">2024–25</span>
+          <span class="pi-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#" class="project-item fade-up delay-1">
+        <span class="pi-num">02</span>
+        <div class="pi-body">
+          <div class="pi-title">Population-Level LLM Reasoning (Version 1 Prelim)</div>
+          <div class="pi-desc">MCQ/T/F question banks anchored to clinical landmarks. BM25 patient retrieval to provide population context. SVG timeline visualizations and structured Word doc reporting.</div>
+        </div>
+        <div class="pi-meta">
+          <span class="pi-year">2024</span>
+          <span class="pi-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#" class="project-item fade-up delay-2">
+        <span class="pi-num">03</span>
+        <div class="pi-body">
+          <div class="pi-title">Behavior Cloning & Flow Matching (CS224R)</div>
+          <div class="pi-desc">Implementing and analyzing behavior cloning, flow matching, and DAgger for robot learning. LaTeX report writing with rigorous experimental analysis.</div>
+        </div>
+        <div class="pi-meta">
+          <span class="pi-year">2024</span>
+          <span class="pi-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#" class="project-item fade-up delay-3">
+        <span class="pi-num">04</span>
+        <div class="pi-body">
+          <div class="pi-title">Animal Orders Management App (TypeScript/React)</div>
+          <div class="pi-desc">Full-stack TypeScript/React application with React Hook Form, AG Grid, and a REST backend. Implemented custom validation logic, form submission pipelines, and data-type handling.</div>
+        </div>
+        <div class="pi-meta">
+          <span class="pi-year">2024</span>
+          <span class="pi-arrow">↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label fade-up">Experience</div>
+    <h2 class="section-title fade-up">Where I've <em>been</em></h2>
+    <div class="exp-timeline">
+      <div class="exp-item fade-up">
+        <div class="exp-date">2024 – Present</div>
+        <div class="exp-role">Graduate Research Assistant</div>
+        <div class="exp-org">Fries Lab, Stanford University · Stanford, CA</div>
+        <div class="exp-desc">
+          Working on retrieval-augmented clinical reasoning and genomic prognosis modeling under Prof. Jason Fries. 
+          Warren Alpert Foundation Scholar. Developing LLM-based pipelines for EHR analysis using FEMR, EHRSHOT, and GCP infrastructure.
+        </div>
+      </div>
+      <div class="exp-item fade-up delay-1">
+        <div class="exp-date">2020 – 2024</div>
+        <div class="exp-role">B.S. Computer Science / B.E. Biomedical Engineering</div>
+        <div class="exp-org">Johns Hopkins University · Baltimore, MD</div>
+        <div class="exp-desc">
+          Dual degree program combining rigorous CS foundations (algorithms, systems, ML) with biomedical engineering 
+          (medical imaging, biosignals, physiology). Built strong applied math foundations in linear algebra, probability, and statistics.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label fade-up">Contact</div>
+    <h2 class="contact-big fade-up delay-1">Let's <em>talk.</em></h2>
+    <p class="contact-sub fade-up delay-2">
+      Open to research collaborations, internship opportunities, and interesting conversations.
+    </p>
+    <div class="contact-links fade-up delay-3">
+      <a href="mailto:ayeeshi@stanford.edu" class="btn btn-primary">ayeeshi@stanford.edu</a>
+      <a href="https://linkedin.com/in/ayeeshikataria" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+      <a href="https://github.com/ayeeshi" target="_blank" class="btn btn-outline">GitHub ↗</a>
+      <a href="#" class="btn btn-outline">Download CV ↗</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Ayeeshi Kataria</span>
+    <span>Built with care · Stanford, CA · 2025</span>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Hero elements animate on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('#hero .fade-up').forEach(el => {
+        el.classList.add('visible');
+      });
+    });
+  </script>
+</body>
+</html>
